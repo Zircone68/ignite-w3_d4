@@ -208,10 +208,10 @@ collectedData = () => {
         newEntry.specialRequests = document.getElementById("specialRequests").value;
         newEntry.smoking = document.getElementById("smoking").checked;
         console.log(newEntry);
-
+        addReservation(newEntry);
 }
 
-addReservation = async () => {
+addReservation = async (newEntry) => {
     let response = await fetch(
         'https://striveschool-api.herokuapp.com/api/reservation/', {
             method: "POST",
@@ -219,7 +219,7 @@ addReservation = async () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(
-                newEvent) // the object newEvent needs to be sent as a string
+                newEntry) // the object newEvent needs to be sent as a string
         })
 
 }
