@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Strive Ignite - Week 3 // Day 4</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <style>
+
+            .carousel-item img {
+                height: 58vh;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .jumbotron {    
+                padding: 2rem 2rem;
+                background-color: var(--bs-dark);
+                color:white;
+            }
+
+            .col {
+                padding: 0;
+            }
+
+            #reservation-image {
+                overflow: hidden;
+                background-size: cover;
+                background-position: center;
+                background-image: url('/korean-food4.jpg');
+            }
+
+            .reservation-container {
+                padding: 5%;
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <img src="bibimbap-logo.png" width="50px;"/>
+              <a class="navbar-brand" href="#">비빔밥 소호 - Bibimbap Soho Restaurant</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        
+              <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="navbar-nav me-auto mb-2">
+                  <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://bibimbapsoho.co.uk/soho/#block-yui_3_17_2_1_1600768061099_44842" target="_blank">Menu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://www.google.com/maps?sll=51.514426,-0.130915&q=11+Greek+Street+London,+W1D+4DJ,+United+Kingdom&z=11" target="_blank">Contacts</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/korean-food.jpg" class="d-block w-100" alt="korean food image">
+            </div>
+            <div class="carousel-item">
+                <img src="/korean-food1.jpg" class="d-block w-100" alt="korean food image">
+            </div>
+            <div class="carousel-item">
+                <img src="/korean-food2.jpg" class="d-block w-100" alt="korean food image">
+            </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+            <h1 class="display-4">Welcome to Bibimbap Soho!</h1>
+            <p class="lead">Bibimbap is the best modern <b>London Korean restaurant</b>. We bring a new and modern take on <b>Korea’s national dish, bibimbap</b>. Bibimbap is tasty, healthy and affordable for that quick working lunch or a pre-theatre bite to eat.</p>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6" id="reservation-image">
+                  <!-- <img src="/호떡.jpg"/> -->
+              </div>
+              <div class="col-md-6" style="background:orange;">
+                <div class="reservation-container">
+                    <h1 class="display-4">Book a table</h1>
+
+                    <form class="row g-2">
+                        <div class="col-md-12">
+                            <label for="exampleInputName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tel" class="form-label">Phone number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="number" class="form-label">Number of persons</label>
+                            <input type="number" class="form-control" id="numberOfPersons" min="1" max="6">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="time" class="form-label">Time</label>
+                            <input type="time" class="form-control" id="time" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="textarea" class="form-label">Special requests</label>
+                            <textarea class="form-control" id="specialRequests" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="smoking">Smoking</label>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" id="get" onclick="collectedData()">Submit</button>
+                        </div>
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script>
+      /*
+      
+       You are creating a presentation page for a restaurant.
+       The restaurant website will include a carousel with some pictures, a jumbotron with a catchy slogan and a reservation form.
+
+       In the reservation form, the user can select:
+
+       - Name
+       - Phone number
+       - Number of persons
+       - Smoking (true / false)
+       - Date and Time
+       - Special Requests
+
+        name: {
+            type: String,
+            required: true,
+        },
+        phone: {
+            type: String,
+            required: true
+        },
+        numberOfPersons: {
+            type: Number,
+            required: false
+        },
+        smoking: {
+            type: Boolean,
+            required: false
+        },
+        dateTime: {
+            type: Date,
+            required: true
+        },
+        specialRequests: {
+            type: String,
+            required: false
+        }
+
+       These reservation will be sent to the owner of the restaurant trough a REST API.
+
+       https://striveschool-api.herokuapp.com/api/reservation/
+
+       The API accepts JSON as content payload and provides the usual REST features:
+
+       - GET https://striveschool-api.herokuapp.com/api/reservation/ ==> Fetch all the reservations
+       - GET https://striveschool-api.herokuapp.com/api/reservation/{id} ==> Fetch a single reservation
+       - POST https://striveschool-api.herokuapp.com/api/reservation/ ==> Submit a new reservation
+       - PUT https://striveschool-api.herokuapp.com/api/reservation/{id} ==> Edit a single reservation
+       - DELETE https://striveschool-api.herokuapp.com/api/reservation/{id} ==> Delete a single reservation
+
+       [EXTRA]
+       Create a "back office" page where the restaurants' manager can edit / delete / check reservations.
+
+      */
+
+// READ (GET)
+
+collectedData = () => {
+    let newEntry = {}
+        newEntry.name = document.getElementById("name").value;
+        newEntry.phone = document.getElementById("phone").value;
+        newEntry.numberOfPersons = document.getElementById("numberOfPersons").value;
+        newEntry.dateTime = document.getElementById("date").value + getElementById("time").value;
+        newEntry.specialRequests = document.getElementById("specialRequests").value;
+        newEntry.smoking = document.getElementById("smoking").checked;
+        console.log(newEntry);
+
+}
+
+// let getButton = document.getElementById("get")
+
+// getButton.addEventListener("click", async (event) => {
+//     console.log("click")
+
+//     let response = await fetch(
+//         'https://striveschool-api.herokuapp.com/api/reservation/'
+//     ) // I'm getting the resources (events)
+//     // console.log(response)
+//     let events = await response.json()
+//     // transforming the content of the response into something usable in JS (array)
+//     console.log("EVENTS: ", events)
+
+//     let eventsSection = document.getElementById("events-section")
+
+//     let arrayOfHTMLStrings = events.map(event =>
+//             `<h3>${event.name}</h3><p>${event._id}</p>`
+//             ) // transform objects into html strings
+
+//     console.log("ARRAY OF TEXT ", arrayOfHTMLStrings)
+
+//     let newHtml = arrayOfHTMLStrings.join("")
+//     // we are creating the entire html string starting from the array of events and using the name and the price of each 
+
+//     console.log("NEW HTML: ", newHtml)
+
+//     eventsSection.innerHTML = newHtml
+// })
+
+// // CREATE (POST)
+
+// let postButton = document.getElementById("post")
+
+// postButton.addEventListener("click", async (event) => {
+//     console.log("click")
+//     let newEvent = {
+//         description: "new description",
+//         name: "NEW EPIC PARTY 2",
+//         price: 1000,
+//         time: "2020-12-18T15:18:00.000Z"
+//     }
+
+//     let response = await fetch(
+//         'https://striveschool-api.herokuapp.com/api/agenda', {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify(
+//                 newEvent) // the object newEvent needs to be sent as a string
+//         })
+// })
+
+// // UPDATE (PUT)
+
+// let putButton = document.getElementById("put")
+
+// putButton.addEventListener("click", async (event) => {
+//     const id = document.getElementById("textField").value
+//     console.log("click")
+//     const modifiedEvent = {
+//         description: "new description",
+//         name: "NEW EPIC PARTYYYYYYYYYYYYYYYYYYYYYY",
+//         price: 1000,
+//         time: "2020-12-18T15:18:00.000Z"
+//     }
+//     let response = await fetch(
+//         `https://striveschool-api.herokuapp.com/api/agenda/${id}`, {
+//             method: "PUT",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify(modifiedEvent)
+//         })
+// })
+
+// // DELETE (DELETE)
+
+// let deleteButton = document.getElementById("delete")
+
+// deleteButton.addEventListener("click", async (event) => {
+//     const id = document.getElementById("textField").value
+//     let response = await fetch(
+//         `https://striveschool-api.herokuapp.com/api/agenda/${id}`, {
+//             method: "DELETE"
+//         })
+// })
+
+    </script>
+</body>
+</html>
