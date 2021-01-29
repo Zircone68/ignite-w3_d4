@@ -127,11 +127,11 @@
                             <textarea class="form-control" id="specialRequests" rows="2"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input" id="smoking">
                             <label class="form-check-label" for="smoking">Smoking</label>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary" id="get" onclick="collectedData()">Submit</button>
+                            <button type="button" class="btn btn-primary" id="post" onclick="collectedData()">Submit</button>
                         </div>
                     </form>
                 
@@ -203,13 +203,51 @@ collectedData = () => {
     let newEntry = {}
         newEntry.name = document.getElementById("name").value;
         newEntry.phone = document.getElementById("phone").value;
-        newEntry.numberOfPersons = document.getElementById("numberOfPersons").value;
-        newEntry.dateTime = document.getElementById("date").value + getElementById("time").value;
+        newEntry.numberOfPersons = parseInt(document.getElementById("numberOfPersons").value);
+        newEntry.dateTime = document.getElementById("date").value + document.getElementById("time").value;
         newEntry.specialRequests = document.getElementById("specialRequests").value;
         newEntry.smoking = document.getElementById("smoking").checked;
         console.log(newEntry);
 
 }
+
+addReservation = async () => {
+    let response = await fetch(
+        'https://striveschool-api.herokuapp.com/api/reservation/', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                newEvent) // the object newEvent needs to be sent as a string
+        })
+
+}
+
+// // CREATE (POST)
+
+// let postButton = document.getElementById("post")
+
+// postButton.addEventListener("click", async (event) => {
+//     console.log("click")
+//     let newEvent = {
+//         description: "new description",
+//         name: "NEW EPIC PARTY 2",
+//         price: 1000,
+//         time: "2020-12-18T15:18:00.000Z"
+//     }
+
+//     let response = await fetch(
+//         'https://striveschool-api.herokuapp.com/api/reservation/', {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify(
+//                 newEvent) // the object newEvent needs to be sent as a string
+//         })
+// })
+
 
 // let getButton = document.getElementById("get")
 
@@ -240,29 +278,6 @@ collectedData = () => {
 //     eventsSection.innerHTML = newHtml
 // })
 
-// // CREATE (POST)
-
-// let postButton = document.getElementById("post")
-
-// postButton.addEventListener("click", async (event) => {
-//     console.log("click")
-//     let newEvent = {
-//         description: "new description",
-//         name: "NEW EPIC PARTY 2",
-//         price: 1000,
-//         time: "2020-12-18T15:18:00.000Z"
-//     }
-
-//     let response = await fetch(
-//         'https://striveschool-api.herokuapp.com/api/agenda', {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify(
-//                 newEvent) // the object newEvent needs to be sent as a string
-//         })
-// })
 
 // // UPDATE (PUT)
 
